@@ -1,0 +1,5 @@
+<svg width="110" height="32" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 4C8 1.79086 9.79086 0 12 0H20C22.2091 0 24 1.79086 24 4V12C24 14.2091 22.2091 16 20 16H12C9.79086 16 8 14.2091 8 12V4Z" fill="#5227FF"/>
+  <path d="M0 20C0 17.7909 1.79086 16 4 16H12C14.2091 16 16 17.7909 16 20V28C16 30.2091 14.2091 32 12 32H4C1.79086 32 0 30.2091 0 28V20Z" fill="#5227FF"/>
+  <text x="32" y="24" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="currentColor">Singari</text>
+</svg>
