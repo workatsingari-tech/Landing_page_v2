@@ -1,174 +1,73 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React from 'react';
 
 const CapabilitiesSnapshot: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated.current) {
-            hasAnimated.current = true;
-
-            cardsRef.current.forEach((card, index) => {
-              if (!card) return;
-
-              gsap.fromTo(
-                card,
-                {
-                  opacity: 0,
-                  y: 60,
-                  scale: 0.95
-                },
-                {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  duration: 0.8,
-                  ease: 'power3.out',
-                  delay: index * 0.15
-                }
-              );
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.1
-      }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const capabilities = [
+    {
+      id: 'adaptive-portfolio',
+      title: 'Adaptive Portfolio Management',
+      description: 'Portfolios evolve in real time using AI and behavioral insights to align with your goals, risk, and life changes.',
+      image: '/capabilities/cap1.svg'
+    },
+    {
+      id: 'goal-oriented',
+      title: 'Goal-Oriented Wealth Planning',
+      description: 'Investments are tailored to your personal milestones, like buying a home, retirement, or career transitions.',
+      image: '/capabilities/cap2.svg'
+    },
+    {
+      id: 'explainable-ai',
+      title: 'Explainable AI Recommendations',
+      description: 'Every portfolio decision comes with clear, plain-language narratives — so you always understand why changes happen.',
+      image: '/capabilities/cap3.svg'
+    },
+    {
+      id: 'cross-border',
+      title: 'Cross-Border and Multi-Asset Integration',
+      description: 'Seamlessly manage diversified portfolios across markets, asset classes, and currencies with tax-optimized strategies.',
+      image: '/capabilities/cap4.svg'
+    }
+  ];
 
   return (
-    <section ref={sectionRef} className="w-full bg-white py-20 px-8">
-      <div className="max-w-[1100px] mx-auto">
-        <h2 className="text-[2.25rem] font-normal mb-10 text-[#1D1D1F]">Capabilities Snapshot</h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {/* Card 1: Adaptive Portfolio Management */}
-          <div
-            ref={(el) => (cardsRef.current[0] = el)}
-            className="bg-[#5B699D] rounded-[1.5rem] p-9 flex flex-col justify-between opacity-0 transition-transform duration-300 hover:scale-[1.01]"
-            style={{ minHeight: '300px' }}
-          >
-            <div className="flex items-center justify-center mb-6">
-              <svg className="w-full max-w-md h-40" viewBox="0 0 540 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Axes */}
-                <line x1="45" y1="160" x2="495" y2="160" stroke="white" strokeWidth="2.5" opacity="0.4"/>
-                <line x1="45" y1="30" x2="45" y2="160" stroke="white" strokeWidth="2.5" opacity="0.4"/>
-                
-                {/* Bar chart */}
-                <rect x="85" y="100" width="55" height="60" fill="#B8BDE8" rx="2"/>
-                <rect x="170" y="45" width="55" height="115" fill="#B8BDE8" rx="2"/>
-                <rect x="255" y="75" width="55" height="85" fill="#B8BDE8" rx="2"/>
-                <rect x="340" y="115" width="55" height="45" fill="#B8BDE8" rx="2"/>
-                <rect x="425" y="60" width="55" height="100" fill="#B8BDE8" rx="2"/>
-              </svg>
+    <section id='capabilities' className="w-full min-h-screen py-20 px-6">
+      <div className="mx-auto max-w-7xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-normal mb-10 text-[#1D1D1F] text-center md:text-left">
+          Capabilities Snapshot
+        </h2>
+        
+        <div className="max-w-6xl mx-auto h-fit py-6 flex flex-col md:flex-row gap-6">
+          {/* Left Column */}
+          <div className="flex-1 flex flex-col gap-6 h-full">
+            <div className="bg-[#3B4686] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
+              <img src={capabilities[0].image} alt="" className="w-full h-auto mb-3" />
+              <p className="text-white text-lg font-semibold">
+                {capabilities[0].title}:  
+                <span className='font-normal'> {capabilities[0].description}</span>
+              </p>
             </div>
-            <div>
-              <h3 className="text-[1.15rem] font-semibold mb-2 text-white leading-tight">
-                Adaptive Portfolio Management:
-              </h3>
-              <p className="text-white/90 text-[0.95rem] leading-relaxed font-light">
-                Portfolios evolve in real time using AI and behavioral insights to align with your goals, risk, and life changes.
+            <div className="flex-1 bg-[#696EB0] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
+              <img src={capabilities[1].image} alt="" className="w-1/2 h-auto mb-3" />
+              <p className="text-white text-lg font-semibold">
+                {capabilities[1].title}:  
+                <span className='font-normal'> {capabilities[1].description}</span>
               </p>
             </div>
           </div>
 
-          {/* Card 2: Explainable AI Recommendations */}
-          <div
-            ref={(el) => (cardsRef.current[1] = el)}
-            className="bg-[#0B1F3D] rounded-[1.5rem] p-9 flex flex-col justify-between opacity-0 transition-transform duration-300 hover:scale-[1.01]"
-            style={{ minHeight: '300px' }}
-          >
-            <div className="flex items-center justify-center mb-6">
-              <svg className="w-full max-w-md h-40" viewBox="0 0 540 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Database cylinders */}
-                <ellipse cx="100" cy="45" rx="60" ry="28" fill="#B8BDE8"/>
-                <ellipse cx="100" cy="95" rx="60" ry="28" fill="#B8BDE8"/>
-                <ellipse cx="100" cy="145" rx="60" ry="28" fill="#B8BDE8"/>
-                
-                {/* Processing blocks */}
-                <rect x="200" y="60" width="110" height="32" fill="#485881" rx="2"/>
-                <rect x="200" y="110" width="110" height="32" fill="#485881" rx="2"/>
-                
-                {/* Output triangles */}
-                <path d="M350 85 L390 68 L390 102 Z" fill="#B8BDE8"/>
-                <path d="M405 85 L445 68 L445 102 Z" fill="#B8BDE8"/>
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-[1.15rem] font-semibold mb-2 text-white leading-tight">
-                Explainable AI Recommendations:
-              </h3>
-              <p className="text-white/90 text-[0.95rem] leading-relaxed font-light">
-                Every portfolio decision comes with clear, plain-language narratives — so you always understand why changes happen.
+          {/* Right Column */}
+          <div className="flex-1 flex flex-col gap-6 h-full">
+            <div className="bg-[#082159] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
+              <img src={capabilities[2].image} alt="" className="w-1/2 h-auto mb-5" />
+              <p className="text-white text-lg font-semibold mt-5">
+                {capabilities[2].title}:  
+                <span className='font-normal'> {capabilities[2].description}</span>
               </p>
             </div>
-          </div>
-
-          {/* Card 3: Goal-Oriented Wealth Planning */}
-          <div
-            ref={(el) => (cardsRef.current[2] = el)}
-            className="bg-[#8E95CA] rounded-[1.5rem] p-9 flex flex-col justify-between opacity-0 transition-transform duration-300 hover:scale-[1.01]"
-            style={{ minHeight: '300px' }}
-          >
-            <div className="flex items-center justify-center mb-6">
-              <svg className="w-full max-w-md h-40" viewBox="0 0 540 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Background triangle */}
-                <path d="M80 165 L240 50 L400 165 Z" fill="#6B78A8" opacity="0.45"/>
-                
-                {/* Foreground shapes */}
-                <ellipse cx="350" cy="135" rx="75" ry="40" fill="#DDE2F5"/>
-                <rect x="315" y="135" width="70" height="50" fill="#7681B5" rx="2"/>
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-[1.15rem] font-semibold mb-2 text-white leading-tight">
-                Goal-Oriented Wealth Planning:
-              </h3>
-              <p className="text-white/90 text-[0.95rem] leading-relaxed font-light">
-                Investments are tailored to your personal milestones like buying a home, retirement, or career transitions.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 4: Cross-Border and Multi-Asset Integration */}
-          <div
-            ref={(el) => (cardsRef.current[3] = el)}
-            className="bg-[#A2A8D8] rounded-[1.5rem] p-9 flex flex-col justify-between opacity-0 transition-transform duration-300 hover:scale-[1.01]"
-            style={{ minHeight: '300px' }}
-          >
-            <div className="flex items-center justify-center mb-6">
-              <svg className="w-full max-w-md h-40" viewBox="0 0 540 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Pie chart segments */}
-                <path d="M270 30 L355 125 Q332 152 270 152 L270 30 Z" fill="#6B78A8"/>
-                <path d="M270 30 L185 125 Q208 152 270 152 L270 30 Z" fill="#485881"/>
-                <path d="M270 30 Q318 35 342 73 Q352 92 342 125 L270 30 Z" fill="#0B1F3D"/>
-                
-                {/* White accent */}
-                <ellipse cx="170" cy="100" rx="48" ry="28" fill="white" opacity="0.85" transform="rotate(-30 170 100)"/>
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-[1.15rem] font-semibold mb-2 text-white leading-tight">
-                Cross-Border and Multi-Asset Integration:
-              </h3>
-              <p className="text-white/90 text-[0.95rem] leading-relaxed font-light">
-                Seamlessly manage diversified portfolios across markets, asset classes, and currencies with tax-optimized strategies.
+            <div className="flex-1 bg-[#979BE2] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
+              <img src={capabilities[3].image} alt="" className="w-1/2 h-auto mb-3" />
+              <p className="text-white text-lg font-semibold">
+                {capabilities[3].title}:  
+                <span className='font-normal'> {capabilities[3].description}</span>
               </p>
             </div>
           </div>

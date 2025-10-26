@@ -16,7 +16,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-8 w-[320px] border border-gray-100">
+    <div className="rounded-3xl shadow-2xl p-8 w-[320px] border border-gray-100">
       {/* Header with dots */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex-1">

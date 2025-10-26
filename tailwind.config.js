@@ -20,7 +20,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Erode', 'serif'],
+        erode: ['Erode', 'serif'],
+        satoshi: ['Satoshi', 'sans-serif'],
       },
     },
   },

@@ -1,14 +1,12 @@
-import { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, ReactNode, RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-import './ScrollReveal.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface ScrollRevealProps {
-  children: string;
-  scrollContainerRef?: React.RefObject<HTMLElement>;
+  children: ReactNode;
+  scrollContainerRef?: RefObject<HTMLElement>;
   enableBlur?: boolean;
   baseOpacity?: number;
   baseRotation?: number;
@@ -35,15 +33,27 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   const splitText = useMemo(() => {
     const text = typeof children === 'string' ? children : '';
-    return text.split(/(\s+)/).map((word, index) => {
+  
+    const boldWords = ['never', 'alone', 'will', 'pass'];
+  
+    const words = text.split(/(\s+)/);
+  
+    return words.map((word, index) => {
       if (word.match(/^\s+$/)) return word;
+  
+      const isBold = boldWords.includes(word.replace(/[.,!?]/g, ''));
+      const isLastWord = index === words.length - 1;
+  
       return (
-        <span className="word" key={index}>
+        <span
+          key={index}
+          className={`inline-block word ${isBold || isLastWord ? 'font-medium' : ''}`}
+        >
           {word}
         </span>
       );
     });
-  }, [children]);
+  }, [children]); 
 
   useEffect(() => {
     const el = containerRef.current;
@@ -67,7 +77,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       }
     );
 
-    const wordElements = el.querySelectorAll('.word');
+    const wordElements = el.querySelectorAll<HTMLElement>('.word');
 
     gsap.fromTo(
       wordElements,
@@ -80,7 +90,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
           trigger: el,
           scroller,
           start: 'top bottom-=20%',
-          end: wordAnimationEnd,
+          end: "bottom+=200 bottom",
           scrub: true
         }
       }
@@ -98,7 +108,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
             trigger: el,
             scroller,
             start: 'top bottom-=20%',
-            end: wordAnimationEnd,
+            end: "bottom+=200 bottom",
             scrub: true
           }
         }
@@ -111,8 +121,8 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
   return (
-    <h2 ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
-      <p className={`scroll-reveal-text ${textClassName}`}>{splitText}</p>
+    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+      <p className={`${textClassName}`}>{splitText}</p>
     </h2>
   );
 };
