@@ -1,177 +1,110 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const cards = [
+  {
+    id: 'ethical',
+    title: 'Ethical and Community-Driven',
+    description: 'Safe, anonymized insights that improve recommendations for everyone.',
+    bgColor: 'bg-[#979BE2]',
+  },
+  {
+    id: 'empowerment',
+    title: 'Empowerment Through Clarity',
+    description: 'Simple, gamified guidance to make you confident financial decisions.',
+    bgColor: 'bg-[#3B4686]',
+  },
+  {
+    id: 'human-centric',
+    title: 'Human-Centric Intelligence',
+    description: 'AI and behavioral insights that create portfolios tailored to you.',
+    bgColor: 'bg-[#082159]',
+  },
+  {
+    id: 'transparency',
+    title: 'Transparency and Trust',
+    description: 'Clear, easy to understand explanations for every recommendation.',
+    bgColor: 'bg-[#3B4686]',
+  },
+  {
+    id: 'adaptive',
+    title: 'Adaptive and Proactive',
+    description: 'Portfolios evolve in real time with markets and life changes.',
+    bgColor: 'bg-[#979BE2]',
+  },
+];
 
 const DefinesSingari: React.FC = () => {
-  const cards = [
-    {
-      id: 'ethical',
-      title: 'Ethical and Community-Driven',
-      description: 'Safe, anonymized insights that improve recommendations for everyone.',
-      bgColor: 'bg-gradient-to-br from-[#B19EEF] to-[#8479C8]',
-      zIndex: 1,
-      rotation: -8,
-      xOffset: -450,
-      yOffset: 20
-    },
-    {
-      id: 'empowerment',
-      title: 'Empowerment Through Clarity',
-      description: 'Simple, gamified guidance to make you confident financial decisions.',
-      bgColor: 'bg-gradient-to-br from-[#4D59A5] to-[#3B4686]',
-      zIndex: 2,
-      rotation: -4,
-      xOffset: -230,
-      yOffset: -10
-    },
-    {
-      id: 'human-centric',
-      title: 'Human-Centric Intelligence',
-      description: 'AI and behavioral insights that create portfolios tailored to you.',
-      bgColor: 'bg-gradient-to-br from-[#0B2654] to-[#1B3264]',
-      zIndex: 4,
-      rotation: 0,
-      xOffset: 0,
-      yOffset: -30
-    },
-    {
-      id: 'transparency',
-      title: 'Transparency and Trust',
-      description: 'Clear, easy to understand explanations for every recommendation.',
-      bgColor: 'bg-gradient-to-br from-[#4D59A5] to-[#3B4686]',
-      zIndex: 2,
-      rotation: 4,
-      xOffset: 230,
-      yOffset: -10
-    },
-    {
-      id: 'adaptive',
-      title: 'Adaptive and Proactive',
-      description: 'Portfolios evolve in real time with markets and life changes.',
-      bgColor: 'bg-gradient-to-br from-[#B19EEF] to-[#8479C8]',
-      zIndex: 1,
-      rotation: 8,
-      xOffset: 450,
-      yOffset: 20
-    }
-  ];
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (!sectionRef.current || !containerRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated.current) {
-            hasAnimated.current = true;
-
-            // Animate cards into shuffled position
-            cards.forEach((card, index) => {
-              const cardEl = containerRef.current?.querySelector(`[data-card="${card.id}"]`);
-              if (!cardEl) return;
-
-              gsap.fromTo(
-                cardEl,
-                {
-                  opacity: 0,
-                  y: 100,
-                  scale: 0.8
-                },
-                {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  duration: 0.8,
-                  ease: 'power3.out',
-                  delay: index * 0.1
-                }
-              );
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.2
-      }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const handleMouseEnter = (id: string, card: typeof cards[0]) => {
-    const cardEl = containerRef.current?.querySelector(`[data-card="${id}"]`) as HTMLElement;
-    if (!cardEl) return;
-
-    gsap.to(cardEl, {
-      y: card.yOffset - 40,
-      scale: 1.05,
-      zIndex: 10,
-      rotation: 0,
-      boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3)',
-      duration: 0.4,
-      ease: 'power2.out'
-    });
-  };
-
-  const handleMouseLeave = (id: string, card: typeof cards[0]) => {
-    const cardEl = containerRef.current?.querySelector(`[data-card="${id}"]`) as HTMLElement;
-    if (!cardEl) return;
-
-    gsap.to(cardEl, {
-      y: card.yOffset,
-      scale: 1,
-      zIndex: card.zIndex,
-      rotation: card.rotation,
-      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
-      duration: 0.4,
-      ease: 'power2.out'
-    });
-  };
-
   return (
-    <section ref={sectionRef} className="w-full bg-white py-20 px-6 overflow-hidden">
-      <div className="max-w-[1460px] mx-auto">
-        <h2 className="text-[2.25rem] font-normal mb-16 text-[#1D1D1F]">What defines Singari?</h2>
+    <section id='about' className="w-full pt-20 px-6 overflow-visible">
+      <div className="mx-auto max-w-7xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-normal mb-10 md:mb-16 text-[#1D1D1F] text-center md:text-left">
+          What defines Singari?
+        </h2>
 
-        <div 
-          ref={containerRef}
-          className="relative h-[540px] flex items-center justify-center"
-        >
+        {/* MOBILE */}
+        <div className="grid grid-cols-1 gap-6 sm:hidden">
           {cards.map((card) => (
             <div
               key={card.id}
-              data-card={card.id}
-              className={`absolute ${card.bgColor} rounded-[2rem] p-8 cursor-pointer opacity-0 shadow-2xl`}
-              style={{
-                width: '340px',
-                height: '420px',
-                transform: `translateX(${card.xOffset}px) translateY(${card.yOffset}px) rotate(${card.rotation}deg)`,
-                zIndex: card.zIndex,
-                willChange: 'transform, z-index, box-shadow'
-              }}
-              onMouseEnter={() => handleMouseEnter(card.id, card)}
-              onMouseLeave={() => handleMouseLeave(card.id, card)}
+              className={`${card.bgColor} rounded-[1.5rem] p-6 text-white min-h-[280px] flex flex-col justify-between`}
             >
-              <div className="flex flex-col h-full justify-between text-white">
-                <h3 className="text-2xl font-semibold leading-tight">
-                  {card.title}
-                </h3>
-                <p className="text-white/90 text-base leading-relaxed font-light">
-                  {card.description}
-                </p>
-              </div>
+              <h3 className="text-2xl font-semibold mb-4 w-[80%] font-satoshi">{card.title}</h3>
+              <p className="text-white/90 text-lg leading-relaxed text-right ml-auto">{card.description}</p>
             </div>
           ))}
         </div>
+
+        {/* DESKTOP */}
+        <div className="hidden sm:flex max-w-7xl mx-auto w-full">
+          <div className="flex w-full h-[450px] -space-x-10">
+            <motion.div
+              className="bg-[#979BE2] w-[400px] h-[400px] p-6 flex flex-col justify-between rounded-[1.5rem] text-white z-10 -rotate-6 translate-y-16 hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              <h3 className="text-[28px] font-satoshi leading-tight">Ethical and Community-Driven</h3>
+              <p className="text-white/90 text-lg leading-relaxed font-light text-right">
+                Safe, anonymized insights that improve recommendations for everyone.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-[#3B4686] w-[400px] h-[400px] p-8 flex flex-col justify-between rounded-[1.5rem] text-white z-20 -rotate-2 translate-y-6 hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              <h3 className="text-[28px] font-satoshi leading-tight">Empowerment Through Clarity</h3>
+              <p className="text-white/90 text-lg leading-relaxed font-light text-right">
+                Simple, gamified guidance to make you confident financial decisions.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-[#082159] w-[400px] h-[400px] p-8 flex flex-col justify-between rounded-[1.5rem] text-white z-30 hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              <h3 className="text-[28px] font-satoshi leading-tight text-right">Human-Centric Intelligence</h3>
+              <p className="text-white/90 text-lg leading-relaxed font-light">
+                AI and behavioral insights that create portfolios tailored to you.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-[#3B4686] w-[400px] h-[400px] p-8 flex flex-col justify-between rounded-[1.5rem] text-white z-20 rotate-2 translate-y-6 hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              <h3 className="text-[28px] font-satoshi leading-tight text-right">Transparency and Trust</h3>
+              <p className="text-white/90 text-lg leading-relaxed font-light">
+                Clear, easy to understand explanations for every recommendation.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-[#979BE2] w-[400px] h-[400px] p-8 flex flex-col justify-between rounded-[1.5rem] text-white z-10 rotate-6 translate-y-16 hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              <h3 className="text-[28px] font-satoshi leading-tight text-right">Adaptive and Proactive</h3>
+              <p className="text-white/90 text-lg leading-relaxed font-light">
+                Portfolios evolve in real time with markets and life changes.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

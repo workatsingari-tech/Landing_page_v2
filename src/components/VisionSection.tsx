@@ -2,78 +2,128 @@ import React from 'react';
 
 const VisionSection: React.FC = () => {
   return (
-    <section className="relative w-full min-h-screen flex items-center bg-[#F5F5F7] py-24">
-      <div className="w-full max-w-[1400px] mx-auto px-12">
-        <div className="max-w-[650px] mb-20">
+    <section id='vision' className="relative w-full min-h-screen flex items-center bg-[#DDDFFF43] py-20 px-6">
+      <div className="w-full mx-auto max-w-7xl">
+        <div className="max-w-[650px] mb-12 md:mb-20">
           {/* Vision Badge */}
-          <div className="inline-flex items-center px-5 py-2 bg-[#D4CFED] rounded-full mb-8">
-            <span className="text-[#5227FF] font-semibold text-sm uppercase tracking-wide">Vision</span>
+          <div 
+            className="inline-flex items-center px-6 py-2 rounded-full mb-2"
+            style={{
+              background: 'linear-gradient(205.82deg, #FBFBFE 16.3%, #F1F0FB 86.48%)',
+              border: '0.5px solid #F1F2F9',
+              boxShadow: 'inset 0px -1px 2.5px rgba(190, 186, 233, 0.25), inset 0px 2px 2px rgba(255, 255, 255, 0.77)',
+              borderRadius: '200px'
+            }}
+          >
+            <span className="text-gray-700 text-sm tracking-wide uppercase">Vision</span>
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-[3.5rem] font-normal text-[#1D1D1F] leading-[1.1] mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-[#1D1D1F] leading-tight mb-2 font-satoshi">
             Wealth that grows<br />with you
           </h2>
 
           {/* Description */}
-          <p className="text-[1.05rem] text-[#6E6E73] leading-relaxed">
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
             Singari reimagines investing as a living, evolving journey — one that listens, adapts, and aligns with who you are becoming. Your goals change, your emotions shift, your life moves forward — and your wealth should too.
           </p>
         </div>
 
         {/* Timeline */}
-        <div className="relative max-w-[1100px]">
-          {/* Horizontal Line */}
-          <div className="absolute top-[50%] left-0 right-0 h-[2px] bg-[#D1D1D6] transform -translate-y-1/2"></div>
-
-          {/* Timeline Steps */}
-          <div className="relative grid grid-cols-4 gap-8">
-            {/* Step 1: Discover Yourself */}
-            <div className="relative flex flex-col items-start">
-              <div className="text-left mb-16">
-                <h3 className="text-[1.35rem] font-normal text-[#1D1D1F] leading-tight">
+        <div className="relative w-full max-w-6xl mx-auto">
+          {/* Desktop Timeline */}
+          <div className="hidden md:block">
+            {/* Top Row - with bottom border */}
+            <div className="grid grid-cols-4 border-b-[2px] border-[#D5D5D5] pb-4">
+              {/* Column 1: Discover Yourself */}
+              <div className="flex flex-col items-center justify-end md:-mb-[27px]">
+                <h3 className="text-2xl font-bold font-satoshi text-[#1D1D1F] leading-tight text-center">
                   Discover<br />Yourself
                 </h3>
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mt-4"></div>
               </div>
-              <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
-                <div className="w-[18px] h-[18px] rounded-full bg-[#86868B] border-4 border-[#F5F5F7]"></div>
+
+              {/* Column 2: Empty */}
+              <div className="flex flex-col items-center justify-end">
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mt-4 hidden"></div>
+              </div>
+
+              {/* Column 3: Adaptive Growth */}
+              <div className="flex flex-col items-center justify-end md:-mb-[27px]">
+                <h3 className="text-2xl font-bold font-satoshi text-[#1D1D1F] leading-tight text-center">
+                  Adaptive<br />Growth
+                </h3>
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mt-4"></div>
+              </div>
+
+              {/* Column 4: Empty */}
+              <div className="flex flex-col items-center justify-end">
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mt-4 hidden"></div>
               </div>
             </div>
 
-            {/* Step 2: Personal Blueprint */}
-            <div className="relative flex flex-col items-start">
-              <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
-                <div className="w-[18px] h-[18px] rounded-full bg-[#86868B] border-4 border-[#F5F5F7]"></div>
+            {/* Bottom Row - with top border */}
+            <div className="grid grid-cols-4 border-t-[2px] border-[#D5D5D5] pt-4">
+              {/* Column 1: Empty */}
+              <div className="flex flex-col items-center justify-start">
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mb-4 hidden"></div>
               </div>
-              <div className="text-left mt-20">
-                <h3 className="text-[1.35rem] font-normal text-[#1D1D1F] leading-tight">
+
+              {/* Column 2: Personal Blueprint */}
+              <div className="flex flex-col items-center justify-start md:-mt-[27px]">
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mb-4"></div>
+                <h3 className="text-2xl font-bold font-satoshi text-[#1D1D1F] leading-tight text-center">
                   Personal<br />Blueprint
                 </h3>
               </div>
-            </div>
 
-            {/* Step 3: Adaptive Growth */}
-            <div className="relative flex flex-col items-start">
-              <div className="text-left mb-16">
-                <h3 className="text-[1.35rem] font-normal text-[#1D1D1F] leading-tight">
-                  Adaptive<br />Growth
-                </h3>
+              {/* Column 3: Empty */}
+              <div className="flex flex-col items-center justify-start">
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mb-4 hidden"></div>
               </div>
-              <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
-                <div className="w-[18px] h-[18px] rounded-full bg-[#86868B] border-4 border-[#F5F5F7]"></div>
-              </div>
-            </div>
 
-            {/* Step 4: Empowered Living */}
-            <div className="relative flex flex-col items-start">
-              <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
-                <div className="w-[18px] h-[18px] rounded-full bg-[#86868B] border-4 border-[#F5F5F7]"></div>
-              </div>
-              <div className="text-left mt-20">
-                <h3 className="text-[1.35rem] font-normal text-[#1D1D1F] leading-tight">
+              {/* Column 4: Empowered Living */}
+              <div className="flex flex-col items-center justify-start md:-mt-[27px]">
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] mb-4"></div>
+                <h3 className="text-2xl font-bold font-satoshi text-[#1D1D1F] leading-tight text-center">
                   Empowered<br />Living
                 </h3>
               </div>
+            </div>
+          </div>
+
+          {/* Mobile Timeline */}
+          <div className="md:hidden w-full border-l-[2px] border-[#D5D5D5] pl-4">
+            {/* Step 1: Discover Yourself */}
+            <div className="flex flex-row items-center gap-4 py-8">
+              <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] -ml-[25px]"></div>
+              <h3 className="text-xl font-semibold font-satoshi text-[#1D1D1F] leading-tight uppercase">
+                Discover Yourself
+              </h3>
+            </div>
+
+            {/* Step 2: Personal Blueprint */}
+            <div className="flex flex-row items-center gap-4 py-8">
+              <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] -ml-[25px]"></div>
+              <h3 className="text-xl font-semibold font-satoshi text-[#1D1D1F] leading-tight uppercase">
+                Personal Blueprint
+              </h3>
+            </div>
+
+            {/* Step 3: Adaptive Growth */}
+            <div className="flex flex-row items-center gap-4 py-8">
+              <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] -ml-[25px]"></div>
+              <h3 className="text-xl font-semibold font-satoshi text-[#1D1D1F] leading-tight uppercase">
+                Adaptive Growth
+              </h3>
+            </div>
+
+            {/* Step 4: Empowered Living */}
+            <div className="flex flex-row items-center gap-4 py-8">
+              <div className="w-[18px] h-[18px] rounded-full bg-[#D5D5D5] border-4 border-[#D5D5D5] -ml-[25px]"></div>
+              <h3 className="text-xl font-semibold font-satoshi text-[#1D1D1F] leading-tight uppercase">
+                Empowered Living
+              </h3>
             </div>
           </div>
         </div>
