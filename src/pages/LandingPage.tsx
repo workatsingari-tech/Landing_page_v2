@@ -82,13 +82,13 @@ const LandingPage: React.FC = () => {
             {/* Email Input */}
             <div className="w-full max-w-lg pt-2">
               {/* Desktop: Connected Layout */}
-              <div className="hidden md:flex items-center border border-gray-300 rounded-full p-1 focus-within:ring-1 focus-within:ring-[#082159] focus-within:border-transparent transition-all">
+              <div className="hidden md:flex items-center border border-gray-300 rounded-full p-1 focus-within:ring-1 focus-within:ring-[#082159] focus-within:border-transparent transition-all hover:shadow-md">
                 <input
                   type="email"
                   placeholder="Enter your email"
                   className="flex-1 px-6 py-3.5 bg-transparent border-0 rounded-full focus:outline-none text-base text-black"
                 />
-                <button className="px-8 py-3.5 bg-[#082159] text-white rounded-full font-medium hover:bg-opacity-90 transition-all duration-200 whitespace-nowrap text-base">
+                <button className="px-8 py-3.5 bg-[#082159] text-white rounded-full font-medium hover:bg-opacity-90 hover:scale-105 transition-all duration-200 whitespace-nowrap text-base active:scale-95">
                   Join Waitlist
                 </button>
               </div>
@@ -98,9 +98,9 @@ const LandingPage: React.FC = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full px-6 py-3.5 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-[#082159] focus:border-transparent transition-all text-base text-black"
+                  className="w-full px-6 py-3.5 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-[#082159] focus:border-transparent transition-all text-base text-black bg-white"
                 />
-                <button className="w-full px-8 py-3.5 bg-[#082159] text-white rounded-full font-medium hover:bg-opacity-90 transition-all duration-200 text-base">
+                <button className="w-full px-8 py-3.5 bg-[#082159] text-white rounded-full font-medium hover:bg-opacity-90 active:scale-95 transition-all duration-200 text-base">
                   Join Waitlist
                 </button>
               </div>
@@ -129,7 +129,9 @@ const LandingPage: React.FC = () => {
           <img 
             src="/hero.png" 
             alt="Hero Dashboard" 
-            className="h-full w-full lg:w-[120%] object-cover object-center lg:object-left scale-[200%] lg:scale-100"
+            role="img"
+            aria-label="A mockup of the Singari application dashboard on a screen."
+            className="h-full w-full lg:w-[120%] object-cover object-center lg:object-left scale-150 lg:scale-100"
           />
         </div>
       </section>

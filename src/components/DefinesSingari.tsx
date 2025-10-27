@@ -36,7 +36,7 @@ const cards = [
 
 const DefinesSingari: React.FC = () => {
   return (
-    <section id='about' className="w-full pt-20 px-6 overflow-visible">
+    <section id='about' className="w-full pt-20 px-6">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-normal mb-10 md:mb-16 text-[#1D1D1F] text-center md:text-left">
           What defines Singari?

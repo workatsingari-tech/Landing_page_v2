@@ -2,7 +2,7 @@ import React from 'react';
 
 const VisionSection: React.FC = () => {
   return (
-    <section id='vision' className="relative w-full min-h-screen flex items-center bg-[#DDDFFF43] py-20 px-6">
+    <section id='vision' className="relative w-full min-h-screen flex items-center bg-[#DDDFFF43] py-20 px-4 md:px-6">
       <div className="w-full mx-auto max-w-7xl">
         <div className="max-w-[650px] mb-12 md:mb-20">
           {/* Vision Badge */}

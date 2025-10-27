@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   return (
@@ -6,18 +7,28 @@ const Footer: React.FC = () => {
       <div className="max-w-[1100px] mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center">
+          <motion.div 
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
             <img 
               src="/logo.svg" 
               alt="Singari Logo" 
               className="h-8 w-auto brightness-[1000]"
             />
-          </div>
+          </motion.div>
 
           {/* Copyright */}
-          <div className="text-white text-sm text-center md:text-left font-satoshi">
+          <motion.div 
+            className="text-white text-sm text-center md:text-left font-satoshi"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             Copyright © 2025 Singari | All Rights Reserved
-          </div>
+          </motion.div>
         </div>
       </div>
     </footer>

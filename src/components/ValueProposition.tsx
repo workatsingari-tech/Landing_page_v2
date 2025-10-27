@@ -121,7 +121,7 @@ const ValueProposition: React.FC = () => {
               key={feature.id}
               data-card={feature.id}
               className={`${feature.bgColor} rounded-[1.5rem] p-6 flex flex-col min-h-[250px]`}
-              style={{ willChange: 'transform' }}
+              style={{ willChange: 'transform, opacity, filter, scale' }}
               onMouseEnter={() => handleMouseEnter(feature.id)}
               onMouseLeave={() => handleMouseLeave(feature.id)}
             >

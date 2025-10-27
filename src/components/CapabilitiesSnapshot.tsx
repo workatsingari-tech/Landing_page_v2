@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const CapabilitiesSnapshot: React.FC = () => {
   const capabilities = [
@@ -38,38 +39,94 @@ const CapabilitiesSnapshot: React.FC = () => {
         <div className="max-w-6xl mx-auto h-fit py-6 flex flex-col md:flex-row gap-6">
           {/* Left Column */}
           <div className="flex-1 flex flex-col gap-6 h-full">
-            <div className="bg-[#3B4686] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
-              <img src={capabilities[0].image} alt="" className="w-full h-auto mb-3" />
+            <motion.div 
+              className="bg-[#3B4686] rounded-[1.5rem] p-8 flex flex-col items-start justify-between cursor-pointer hover:brightness-110"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <motion.img 
+                src={capabilities[0].image} 
+                alt="" 
+                className="w-full h-auto mb-3"
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                transition={{ duration: 0.3 }}
+              />
               <p className="text-white text-lg font-semibold">
                 {capabilities[0].title}:  
                 <span className='font-normal'> {capabilities[0].description}</span>
               </p>
-            </div>
-            <div className="flex-1 bg-[#696EB0] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
-              <img src={capabilities[1].image} alt="" className="w-1/2 h-auto mb-3" />
+            </motion.div>
+            <motion.div 
+              className="flex-1 bg-[#696EB0] rounded-[1.5rem] p-8 flex flex-col items-start justify-between cursor-pointer hover:brightness-110"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <motion.img 
+                src={capabilities[1].image} 
+                alt="" 
+                className="w-1/2 h-auto mb-3"
+                whileHover={{ scale: 1.05, rotate: -2 }}
+                transition={{ duration: 0.3 }}
+              />
               <p className="text-white text-lg font-semibold">
                 {capabilities[1].title}:  
                 <span className='font-normal'> {capabilities[1].description}</span>
               </p>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column */}
           <div className="flex-1 flex flex-col gap-6 h-full">
-            <div className="bg-[#082159] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
-              <img src={capabilities[2].image} alt="" className="w-1/2 h-auto mb-5" />
+            <motion.div 
+              className="bg-[#082159] rounded-[1.5rem] p-8 flex flex-col items-start justify-between cursor-pointer hover:brightness-110"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <motion.img 
+                src={capabilities[2].image} 
+                alt="" 
+                className="w-1/2 h-auto mb-5"
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                transition={{ duration: 0.3 }}
+              />
               <p className="text-white text-lg font-semibold mt-5">
                 {capabilities[2].title}:  
                 <span className='font-normal'> {capabilities[2].description}</span>
               </p>
-            </div>
-            <div className="flex-1 bg-[#979BE2] rounded-[1.5rem] p-8 flex flex-col items-start justify-between hover:brightness-110 transition-all duration-300ms">
-              <img src={capabilities[3].image} alt="" className="w-1/2 h-auto mb-3" />
+            </motion.div>
+            <motion.div 
+              className="flex-1 bg-[#979BE2] rounded-[1.5rem] p-8 flex flex-col items-start justify-between cursor-pointer hover:brightness-110"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <motion.img 
+                src={capabilities[3].image} 
+                alt="" 
+                className="w-1/2 h-auto mb-3"
+                whileHover={{ scale: 1.05, rotate: -2 }}
+                transition={{ duration: 0.3 }}
+              />
               <p className="text-white text-lg font-semibold">
                 {capabilities[3].title}:  
                 <span className='font-normal'> {capabilities[3].description}</span>
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
