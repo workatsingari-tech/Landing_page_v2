@@ -36,11 +36,11 @@ const cards = [
 
 const DefinesSingari: React.FC = () => {
   return (
-    <section id='about' className="w-full pt-20 px-6">
+    <section id='about' className="w-full py-10 md:py-20 px-6 bg-[#f5f5f5]">
       <div className="mx-auto max-w-7xl">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-normal mb-10 md:mb-16 text-[#1D1D1F] text-center md:text-left">
-          What defines Singari?
-        </h2>
+        <div className="px-6 py-2 rounded-full mb-12 bg-[#dddfff] w-fit mx-auto">
+          <span className="text-black text-sm tracking-wide uppercase">What Defines Singari?</span>
+        </div>
 
         {/* MOBILE */}
         <div className="grid grid-cols-1 gap-6 sm:hidden">
