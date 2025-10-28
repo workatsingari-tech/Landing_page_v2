@@ -9,12 +9,22 @@
 /build
 /dist
 
-# environment variables
+# environment variables (IMPORTANT: Keep these secret!)
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.json
+
+# Supabase
+supabase/.env
+supabase/.env.json
+supabase/functions/**/.env
+supabase/functions/**/.env.json
+.env.supabase
+.branches
+.temp
 
 # logs
 npm-debug.log*

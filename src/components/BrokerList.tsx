@@ -28,7 +28,11 @@ export default function BrandsMarquee(): JSX.Element {
     { id: 10, name: "Vanguard", logo: "/brokers/vanguard.png" },
   ];
 
-  const duplicatedBrands = [...brands, ...brands]; // duplicated for seamless loop
+  // Duplicate brands with unique keys for seamless infinite scroll
+  const duplicatedBrands = [
+    ...brands,
+    ...brands.map(b => ({ ...b, id: `${b.id}-duplicate` }))
+  ];
 
   useLayoutEffect(() => {
     const marquee = marqueeRef.current;

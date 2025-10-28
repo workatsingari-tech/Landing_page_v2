@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
 
+// Supabase configuration - uses environment variables with fallback
+// Note: anon key is safe to expose (it's public and has limited permissions)
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://hsvrwedgrpxaiwvteqay.supabase.co";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzdnJ3ZWRncnB4YWl3dnRlcWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTEwOTcsImV4cCI6MjA3NzEyNzA5N30.VzwwPLTHPLHaYoXSuV2k1gOgfwywZp1-BSgrYkL1G4E";
+
 const EmailSignup: React.FC = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email.trim()) {
@@ -13,19 +18,45 @@ const EmailSignup: React.FC = () => {
       return;
     }
 
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
     setLoading(true);
 
-    // Simulate API success/failure
-    setTimeout(() => {
-      const isSuccess = Math.random() > 0.3;
-      if (isSuccess) {
+    try {
+            const response = await fetch(
+        `${SUPABASE_URL}/functions/v1/send-thankyou`,
+        {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("You're on the waitlist! Check your email 🎉");
+        setEmail("");
+      } else if (response.status === 207) {
+        // Partial success - email saved but notification failed
         toast.success("You're on the waitlist! 🎉");
         setEmail("");
       } else {
-        toast.error("Something went wrong. Please try again.");
+        toast.error(data.error || "Something went wrong. Please try again.");
       }
+    } catch (error) {
+      console.error("Error submitting email:", error);
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
       setLoading(false);
-    }, 1200);
+    }
   };
 
   return (
