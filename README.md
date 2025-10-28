@@ -100,3 +100,13 @@ Form validation & user feedback
 Emails sent to ALL addresses
 Custom domain sender (noreply@singari.com)
 Full production ready
+
+
+Want to Remove the Red Underlines? (Optional)
+Supabase (which uses Deno runtime). The errors are:
+
+❌ Can't find Deno modules → Normal in VS Code, works in Supabase
+❌ Can't find Deno global → Normal in VS Code, works in Supabase
+The "Errors":
+❌ Can't find Deno global → Normal, it exists in Supabase/Deno
+❌ Can't find URL imports → Normal, Deno supports them

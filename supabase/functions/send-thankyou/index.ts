@@ -1,5 +1,7 @@
 // Supabase Edge Function to handle email signup
+// @deno-types="https://deno.land/std@0.177.0/http/server.ts"
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
+// @deno-types="https://esm.sh/@supabase/supabase-js@2"
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const SUPABASE_URL = Deno.env.get("PROJECT_URL")!;
