@@ -1,29 +1,26 @@
-import { useEffect } from 'react';
-import LandingPage from './pages/LandingPage';
-import './index.css';
+import { useEffect } from "react";
+import LandingPage from "./pages/LandingPage";
+import { Toaster } from "sonner";
+import "./index.css";
 
 function App() {
   useEffect(() => {
-    // Dynamically import Lenis
     let lenis: any;
 
     const initLenis = async () => {
-      // Import Lenis dynamically
-      const Lenis = (await import('lenis')).default;
-      
-      // Initialize Lenis
+      const Lenis = (await import("lenis")).default;
+
       lenis = new Lenis({
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
+        orientation: "vertical",
+        gestureOrientation: "vertical",
         smoothWheel: true,
         wheelMultiplier: 1,
         touchMultiplier: 2,
         infinite: false,
       });
 
-      // Animation loop
       function raf(time: number) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -34,15 +31,17 @@ function App() {
 
     initLenis();
 
-    // Cleanup
     return () => {
-      if (lenis) {
-        lenis.destroy();
-      }
+      if (lenis) lenis.destroy();
     };
   }, []);
 
-  return <LandingPage />;
+  return (
+    <>
+      <LandingPage />
+      <Toaster position="top-center" richColors />
+    </>
+  );
 }
 
 export default App;

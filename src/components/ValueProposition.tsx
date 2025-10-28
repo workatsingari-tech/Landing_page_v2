@@ -111,9 +111,9 @@ const ValueProposition: React.FC = () => {
   };
 
   return (
-    <section id='value' ref={sectionRef} className="w-full min-h-screen py-20 px-6">
-      <div className="mx-auto max-w-7xl">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-normal mb-10 text-[#1D1D1F] text-center md:text-left">Value Proposition</h2>
+    <section id='value' ref={sectionRef} className="w-full min-h-screen py-10 md:py-20 px-6">
+      <div className="mx-auto max-w-7xl px-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-medium mb-10 text-black text-center md:text-left">Value Proposition</h2>
         
         <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 max-w-6xl mx-auto">
           {features.map((feature) => (

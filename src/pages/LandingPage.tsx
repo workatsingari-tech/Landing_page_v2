@@ -11,6 +11,9 @@ import CapabilitiesSnapshot from '../components/CapabilitiesSnapshot';
 import FAQs from '../components/FAQsection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
+import WaitlistButton from '../components/waitlistButton';
+
+// import TopBlur from '../components/TopBlur';
 
 const LandingPage: React.FC = () => {
   // Launch date: January 31, 2025 at 00:00
@@ -33,11 +36,11 @@ const LandingPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fefefe] overflow-hidden">
+    <div className="min-h-screen bg-white overflow-hidden relative">
       {/* Header with Staggered Menu */}
       <StaggeredMenu
         position="right"
-        colors={['#696EB0', '#979BE2']}
+        colors={['#ffffff', '#ffffff']}
         items={menuItems}
         socialItems={socialItems}
         displaySocials={true}
@@ -50,8 +53,22 @@ const LandingPage: React.FC = () => {
         changeMenuColorOnOpen={true}
       />
 
+      {/* Top Blur Layer */}
+      {/* <TopBlur
+        preset="page-header"
+        height="6rem"
+        strength={2}
+        opacity={1}
+        divCount={6}
+        animated="scroll"
+        curve="bezier"
+        zIndex={1}  // Slightly below your StaggeredMenu
+        target="page"
+        className="pointer-events-none"
+      /> */}
+
       {/* Hero Section */}
-      <section className="relative w-full h-screen flex flex-col lg:flex-row overflow-hidden pt-20">
+      <section className="relative w-full h-screen flex flex-col lg:flex-row overflow-hidden pt-20 mb-10">
         {/* Left Side - Content */}
         <div className="w-full lg:w-1/2 flex items-center px-6 md:px-12 lg:px-16 py-8">
           <div className="space-y-4 w-full max-w-xl">
@@ -62,7 +79,7 @@ const LandingPage: React.FC = () => {
             <SplitText
               text="Finance that listens, learns, and grows with your life."
               tag="h1"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#1D1D1F] leading-tight font-satoshi"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight tracking-tight font-satoshi"
               splitType="words, chars"
               delay={30}
               duration={0.8}
@@ -80,42 +97,18 @@ const LandingPage: React.FC = () => {
             </p>
 
             {/* Email Input */}
-            <div className="w-full max-w-lg pt-2">
-              {/* Desktop: Connected Layout */}
-              <div className="hidden md:flex items-center border border-gray-300 rounded-full p-1 focus-within:ring-1 focus-within:ring-[#082159] focus-within:border-transparent transition-all hover:shadow-md">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-6 py-3.5 bg-transparent border-0 rounded-full focus:outline-none text-base text-black"
-                />
-                <button className="px-8 py-3.5 bg-[#082159] text-white rounded-full font-medium hover:bg-opacity-90 hover:scale-105 transition-all duration-200 whitespace-nowrap text-base active:scale-95">
-                  Join Waitlist
-                </button>
-              </div>
-              
-              {/* Mobile: Separate Layout */}
-              <div className="md:hidden flex flex-col gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-6 py-3.5 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-[#082159] focus:border-transparent transition-all text-base text-black bg-white"
-                />
-                <button className="w-full px-8 py-3.5 bg-[#082159] text-white rounded-full font-medium hover:bg-opacity-90 active:scale-95 transition-all duration-200 text-base">
-                  Join Waitlist
-                </button>
-              </div>
-            </div>
+            <WaitlistButton />
 
             {/* Stats */}
             <div className="flex justify-center md:justify-start gap-8 md:gap-16 pt-6">
               <div className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-bold text-[#1D1D1F] leading-none font-satoshi">
+                <div className="text-3xl md:text-4xl font-bold text-black leading-none font-satoshi">
                   <CountUp to={1200} duration={2.5} separator="," />+
                 </div>
                 <div className="text-[#6E6E73] text-sm md:text-base">Early Users</div>
               </div>
               <div className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-bold text-[#1D1D1F] leading-none font-satoshi">
+                <div className="text-3xl md:text-4xl font-bold text-black leading-none font-satoshi">
                   <CountUp to={99} duration={2} />%
                 </div>
                 <div className="text-[#6E6E73] text-sm md:text-base">Satisfaction Rate</div>
@@ -131,7 +124,7 @@ const LandingPage: React.FC = () => {
             alt="Hero Dashboard" 
             role="img"
             aria-label="A mockup of the Singari application dashboard on a screen."
-            className="h-full w-full lg:w-[120%] object-cover object-center lg:object-left scale-150 lg:scale-100"
+            className="h-full w-full lg:w-[120%] object-cover object-center lg:object-left scale-150 lg:scale-100 mt-6"
           />
         </div>
       </section>
