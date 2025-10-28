@@ -11,7 +11,9 @@ import CapabilitiesSnapshot from '../components/CapabilitiesSnapshot';
 import FAQs from '../components/FAQsection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
-import WaitlistButton from '../components/waitlistButton';
+import WaitlistButton from '../components/WaitlistButton';
+import Brokers from '../components/BrokerList';
+import { motion } from 'framer-motion'
 
 // import TopBlur from '../components/TopBlur';
 
@@ -73,7 +75,13 @@ const LandingPage: React.FC = () => {
         <div className="w-full lg:w-1/2 flex items-center px-6 md:px-12 lg:px-16 py-8">
           <div className="space-y-4 w-full max-w-xl">
             {/* Launch Countdown Badge */}
-            <LaunchCountdown launchDate={launchDate} />
+            <motion.div
+              initial={{ opacity: 0, y: 40, rotate: 4 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <LaunchCountdown launchDate={launchDate} />
+            </motion.div>
 
             {/* Main Heading */}
             <SplitText
@@ -91,13 +99,24 @@ const LandingPage: React.FC = () => {
             />
 
             {/* Subtext */}
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 30, rotate: 4 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-base md:text-lg text-gray-600 leading-relaxed"
+            >
               Experience the future of personal finance management with AI-powered insights 
               and intuitive design.
-            </p>
+            </motion.p>
 
             {/* Email Input */}
-            <WaitlistButton />
+            <motion.div
+              initial={{ opacity: 0, y: 40, rotate: 2 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <WaitlistButton />
+            </motion.div>
 
             {/* Stats */}
             <div className="flex justify-center md:justify-start gap-8 md:gap-16 pt-6">
@@ -117,8 +136,12 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side - Hero Image */}
-        <div className="flex w-full lg:w-1/2 relative items-center justify-center overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}  
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }} 
+          className="flex w-full lg:w-1/2 relative items-center justify-center overflow-hidden"
+        >
           <img 
             src="/hero.png" 
             alt="Hero Dashboard" 
@@ -126,31 +149,17 @@ const LandingPage: React.FC = () => {
             aria-label="A mockup of the Singari application dashboard on a screen."
             className="h-full w-full lg:w-[120%] object-cover object-center lg:object-left scale-150 lg:scale-100 mt-6"
           />
-        </div>
+        </motion.div>
       </section>
 
-      {/* Vision Section */}
       <VisionSection />
-
-      {/* Value Proposition Section */}
       <ValueProposition />
-
-      {/* What Defines Singari Section */}
+      <Brokers />
       <DefinesSingari />
-
-      {/* Investment Philosophy Section */}
       <InvestmentPhilosophy />
-
-      {/* Capabilities Snapshot Section */}
       <CapabilitiesSnapshot />
-
-      {/* FAQs Section */}
       <FAQs />
-
-      {/* CTA Section */}
       <CTASection />
-
-      {/* Footer */}
       <Footer />
     </div>
   );

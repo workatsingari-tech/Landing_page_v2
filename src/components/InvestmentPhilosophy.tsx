@@ -1,12 +1,18 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
+import { motion } from 'framer-motion';
 
 const InvestmentPhilosophy: React.FC = () => {
   return (
     <section id='philosophy' className="w-full py-10 h-fit md:h-screen flex flex-col items-center justify-center px-6 max-w-6xl mx-auto">
-      <div className="inline-flex items-center px-6 py-2 rounded-full mb-2 bg-[#dddfff]">
-        <span className="text-black text-sm tracking-wide uppercase">Our Investment Philosophy</span>
-      </div>
+      <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="inline-flex items-center px-6 py-2 rounded-full mb-2 bg-[#dddfff]">
+        <h2 className="text-black text-sm tracking-wide uppercase">Our Investment Philosophy</h2>
+      </motion.div>
       <div className="text-center text-black/60 text-[32px] md:text-[48px] leading-[1.2em] font-light font-satoshi">
         <ScrollReveal
           baseOpacity={0}

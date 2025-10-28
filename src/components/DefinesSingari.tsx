@@ -36,27 +36,47 @@ const cards = [
 
 const DefinesSingari: React.FC = () => {
   return (
-    <section id='about' className="w-full py-10 md:py-20 px-6 bg-[#f5f5f5]">
+    <section id='about' className="w-full py-10 md:py-20 px-6">
       <div className="mx-auto max-w-7xl">
-        <div className="px-6 py-2 rounded-full mb-12 bg-[#dddfff] w-fit mx-auto">
-          <span className="text-black text-sm tracking-wide uppercase">What Defines Singari?</span>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="px-6 py-2 rounded-full mb-12 bg-[#dddfff] w-fit mx-auto">
+          <h2 className="text-black text-sm tracking-wide uppercase">What Defines Singari?</h2>
+        </motion.div>
 
         {/* MOBILE */}
-        <div className="grid grid-cols-1 gap-6 sm:hidden">
+        <div className="grid grid-cols-1 gap-3 sm:hidden">
           {cards.map((card) => (
-            <div
+            <motion.div
               key={card.id}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              viewport={{ once: true, amount: 0.3 }}
               className={`${card.bgColor} rounded-[1.5rem] p-6 text-white min-h-[280px] flex flex-col justify-between`}
             >
               <h3 className="text-2xl font-semibold mb-4 w-[80%] font-satoshi">{card.title}</h3>
               <p className="text-white/90 text-lg leading-relaxed text-right ml-auto">{card.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* DESKTOP */}
-        <div className="hidden sm:flex max-w-7xl mx-auto w-full">
+        <motion.div 
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.1, 0.25, 1],
+          }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="hidden sm:flex max-w-7xl mx-auto w-full">
           <div className="flex w-full h-[450px] -space-x-10">
             <motion.div
               className="bg-[#979BE2] w-[400px] h-[400px] p-6 flex flex-col justify-between rounded-[1.5rem] text-white z-10 -rotate-6 translate-y-16 hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300"
@@ -103,7 +123,7 @@ const DefinesSingari: React.FC = () => {
               </p>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const VisionSection: React.FC = () => {
   return (
@@ -18,19 +20,35 @@ const VisionSection: React.FC = () => {
             </div>
 
             {/* Main Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white leading-tight mb-2 font-satoshi">
+            <motion.h2
+              initial={{ opacity: 0, y: 60, rotate: 4 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-medium text-white leading-tight mb-2 font-satoshi"
+            >
               Wealth that
               <br />
               <span className="text-[#477fff]">grows with you</span>
-            </h2>
+            </motion.h2>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-white/80 leading-relaxed mb-12">
+            <motion.p
+              initial={{ opacity: 0, y: 30, rotate: 2 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{
+                duration: 0.9,
+                delay: 0.2,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="text-base md:text-lg text-white/80 leading-relaxed mb-12"
+            >
               Singari reimagines investing as a living, evolving journey — one
               that listens, adapts, and aligns with who you are becoming. Your
               goals change, your emotions shift, your life moves forward — and
               your wealth should too.
-            </p>
+            </motion.p>
           </div>
         </div>
 
