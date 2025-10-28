@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import WaitlistButton from './waitlistButton';
+import WaitlistButton from './WaitlistButton';
 
 const CTASection: React.FC = () => {
   return (
@@ -23,8 +23,8 @@ const CTASection: React.FC = () => {
         </motion.h2>
         <motion.p 
           className="text-[#6E6E73] text-base md:text-lg mb-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
@@ -32,7 +32,13 @@ const CTASection: React.FC = () => {
         </motion.p>
         
         {/* Email Input */}
-        <WaitlistButton/>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          <WaitlistButton />
+        </motion.div>
         
         {/* Optional: Trust indicator */}
         {/* <p className="text-xs text-gray-500 mt-6">
