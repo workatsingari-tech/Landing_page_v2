@@ -28,7 +28,7 @@
 | Variable Name | Value |
 |--------------|-------|
 | `PROJECT_URL` | `https://hsvrwedgrpxaiwvteqay.supabase.co` |
-| `SERVICE_ROLE_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzdnJ3ZWRncnB4YWl3dnRlcWF5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MTU1MTA5NywiZXhwIjoyMDc3MTI3MDk3fQ.a4HOQquOaRPPE6dnTeztqJdZ_6k9aBnt9zyF5BFcdjo` |
+| `SERVICE_ROLE_KEY` | **[Get from Supabase Dashboard → Settings → API → service_role key]** |
 | `RESEND_API_KEY` | [Paste your Resend API key from Step 1] |
 | `FROM_EMAIL` | `onboarding@resend.dev` (or your verified domain) |
 
