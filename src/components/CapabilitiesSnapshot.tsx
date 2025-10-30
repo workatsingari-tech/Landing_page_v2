@@ -8,28 +8,28 @@ const CapabilitiesSnapshot: React.FC = () => {
       title: "Adaptive Portfolio Management",
       description:
         "Portfolios evolve in real time using AI and behavioral insights to align with your goals, risk, and life changes.",
-      image: "/capabilities/captest.jpg",
+      image: "/capabilities/cap1.png",
     },
     {
       id: "goal-oriented",
       title: "Goal-Oriented Wealth Planning",
       description:
         "Investments are tailored to your personal milestones, like buying a home, retirement, or career transitions.",
-      image: "/capabilities/captest.jpg",
+      image: "/capabilities/cap2.png",
     },
     {
       id: "explainable-ai",
       title: "Explainable AI Recommendations",
       description:
         "Every portfolio decision comes with clear, plain-language narratives — so you always understand why changes happen.",
-      image: "/capabilities/captest.jpg",
+      image: "/capabilities/cap3.png",
     },
     {
       id: "cross-border",
       title: "Cross-Border and Multi-Asset Integration",
       description:
         "Seamlessly manage diversified portfolios across markets, asset classes, and currencies with tax-optimized strategies.",
-      image: "/capabilities/captest.jpg",
+      image: "/capabilities/cap4.png",
     },
   ];
 
@@ -65,7 +65,7 @@ const CapabilitiesSnapshot: React.FC = () => {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 md:gap-8">
+        <div className="hidden md:grid md:grid-cols-2 md:gap-8 max-w-6xl mx-auto">
           {/* Row 1 */}
           <motion.div 
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const CapabilitiesSnapshot: React.FC = () => {
             <img
               src={capabilities[0].image}
               alt={capabilities[0].title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />
           </motion.div>
 
@@ -112,7 +112,7 @@ const CapabilitiesSnapshot: React.FC = () => {
             <img
               src={capabilities[1].image}
               alt={capabilities[1].title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />
           </motion.div>
           <motion.div 
@@ -161,7 +161,7 @@ const CapabilitiesSnapshot: React.FC = () => {
             <img
               src={capabilities[2].image}
               alt={capabilities[2].title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />
           </motion.div>
 
@@ -178,7 +178,7 @@ const CapabilitiesSnapshot: React.FC = () => {
             <img
               src={capabilities[3].image}
               alt={capabilities[3].title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />
           </motion.div>
           <motion.div 
@@ -216,7 +216,7 @@ const CapabilitiesSnapshot: React.FC = () => {
                 <img
                   src={cap.image}
                   alt={cap.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="bg-gray-100 p-6 flex flex-col justify-center">

@@ -10,22 +10,22 @@ type Brand = {
 };
 
 export default function BrandsMarquee(): JSX.Element {
-  const baseVelocity = -50; // px per second — slower = smoother
+  const baseVelocity = -40;
   const marqueeRef = useRef<HTMLDivElement | null>(null);
   const x = useRef(0);
   const [contentWidth, setContentWidth] = useState<number>(0);
 
   const brands: Brand[] = [
-    { id: 1, name: "InteractiveBroker", logo: "/brokers/interactiveBroker.webp" },
+    { id: 1, name: "InteractiveBroker", logo: "/brokers/interactive.png" },
     { id: 2, name: "Etrade", logo: "/brokers/etrade.png" },
-    { id: 3, name: "CharlesSCHWAB", logo: "/brokers/charlesSchwab.png" },
-    { id: 4, name: "Fidelity", logo: "/brokers/fidelity.jpeg" },
+    { id: 3, name: "CharlesSCHWAB", logo: "/brokers/charles.png" },
+    { id: 4, name: "Fidelity", logo: "/brokers/fidelity.png" },
     { id: 5, name: "Vanguard", logo: "/brokers/vanguard.png" },
-    { id: 6, name: "InteractiveBroker", logo: "/brokers/interactiveBroker.webp" },
-    { id: 7, name: "Etrade", logo: "/brokers/etrade.png" },
-    { id: 8, name: "CharlesSCHWAB", logo: "/brokers/charlesSchwab.png" },
-    { id: 9, name: "Fidelity", logo: "/brokers/fidelity.jpeg" },
-    { id: 10, name: "Vanguard", logo: "/brokers/vanguard.png" },
+    { id: 6, name: "Ameritrade", logo: "/brokers/ameritrade.png" },
+    { id: 7, name: "Betterment", logo: "/brokers/betterment.png" },
+    { id: 8, name: "Merill", logo: "/brokers/merill.png" },
+    { id: 9, name: "Robinhood", logo: "/brokers/robinhood.png" },
+    { id: 10, name: "Webull", logo: "/brokers/webull.png" },
   ];
 
   // Duplicate brands with unique keys for seamless infinite scroll
@@ -84,7 +84,7 @@ export default function BrandsMarquee(): JSX.Element {
       <div className="relative w-full overflow-hidden">
         <div
           ref={marqueeRef}
-          className="flex whitespace-nowrap gap-4 md:gap-8 will-change-transform"
+          className="flex whitespace-nowrap gap-4 md:gap-12 will-change-transform"
           style={{
             transform: "translate3d(0, 0, 0)",
             transition: "transform 0.05s linear",

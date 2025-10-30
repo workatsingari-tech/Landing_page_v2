@@ -27,9 +27,9 @@ const VisionSection: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="text-3xl sm:text-4xl md:text-5xl font-medium text-white leading-tight mb-2 font-satoshi"
             >
-              Wealth that
+                Your path to wealth,
               <br />
-              <span className="text-[#477fff]">grows with you</span>
+              <span className="text-[#477fff]">supported by Singari.</span>
             </motion.h2>
 
             {/* Description */}
@@ -44,10 +44,7 @@ const VisionSection: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="text-base md:text-lg text-white/80 leading-relaxed mb-12"
             >
-              Singari reimagines investing as a living, evolving journey — one
-              that listens, adapts, and aligns with who you are becoming. Your
-              goals change, your emotions shift, your life moves forward — and
-              your wealth should too.
+              Each step matters. Singari helps you move seamlessly from ambition to achievement — making your path to financial growth steady and supported.
             </motion.p>
           </div>
         </div>
