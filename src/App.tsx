@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
+import Dashboard from "./pages/Dashboard";
 import { Toaster } from "sonner";
 import "./index.css";
 
@@ -38,7 +40,10 @@ function App() {
 
   return (
     <>
-      <LandingPage />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
       <Toaster position="top-center" richColors />
     </>
   );

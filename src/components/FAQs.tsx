@@ -40,7 +40,7 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
     >
       <div className="flex justify-between items-center w-full text-left font-normal text-black">
       <span className="flex items-start">
-        <span className="w-6 md:w-12 font-satoshi">{index + 1}.</span>
+        <span className="w-8 md:w-12 font-satoshi">{index + 1}.</span>
         <span className="text-base md:text-lg pr-4 text-black font-satoshi">{faq.question}</span>
       </span>
         {open ? <CaretUp size={20} /> : <CaretDown size={20} />}

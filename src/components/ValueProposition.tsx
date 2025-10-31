@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, scale } from "framer-motion";
 
 const ValueProposition: React.FC = () => {
   const features = [
@@ -41,7 +41,7 @@ const ValueProposition: React.FC = () => {
   return (
     <section
       id="value"
-      className="w-full min-h-screen py-10 md:py-20 px-6 bg-white"
+      className="w-full min-h-screen py-10 md:py-28 md:px-6 bg-white"
     >
       <div className="mx-auto max-w-7xl px-6">
         {/* Animated Heading */}
@@ -50,7 +50,7 @@ const ValueProposition: React.FC = () => {
           whileInView={{ opacity: 1, y: 0, rotate: 0 }}
           transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true, amount: 0.3 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-medium mb-10 text-black text-center md:text-left"
+          className="text-3xl sm:text-4xl md:text-5xl font-satoshi font-medium mb-5 md:mb-10 text-black text-center md:text-left"
         >
           Value <span className="text-[#082159]">Proposition</span>
         </motion.h2>

@@ -432,6 +432,17 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
+                      onClick={() => {
+                        if (openRef.current) {
+                          openRef.current = false;
+                          setOpen(false);
+                          playClose();
+                          animateIcon();
+                          animateColor(false);
+                          animateText(false);
+                          onMenuClose?.();
+                        }
+                      }}
                     >
                       <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform text-4xl md:text-5xl">
                         {it.label}

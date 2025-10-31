@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const InvestmentPhilosophy: React.FC = () => {
   return (
-    <section id='philosophy' className="w-full py-10 h-fit md:h-screen flex flex-col items-center justify-center px-6 max-w-6xl mx-auto">
+    <section id='philosophy' className="w-full py-20 h-fit md:h-screen flex flex-col items-center justify-center px-6 max-w-6xl mx-auto">
       <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

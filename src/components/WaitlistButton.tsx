@@ -3,8 +3,8 @@ import { toast } from "sonner";
 
 // Supabase configuration - uses environment variables with fallback
 // Note: anon key is safe to expose (it's public and has limited permissions)
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://hsvrwedgrpxaiwvteqay.supabase.co";
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzdnJ3ZWRncnB4YWl3dnRlcWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTEwOTcsImV4cCI6MjA3NzEyNzA5N30.VzwwPLTHPLHaYoXSuV2k1gOgfwywZp1-BSgrYkL1G4E";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const EmailSignup: React.FC = () => {
   const [email, setEmail] = useState("");

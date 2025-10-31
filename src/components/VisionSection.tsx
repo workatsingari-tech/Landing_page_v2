@@ -9,7 +9,7 @@ const VisionSection: React.FC = () => {
       className="relative w-full h-fit bg-white overflow-hidden"
     >
       {/* Top Blue Section */}
-      <div className="relative w-full bg-[#082159] flex flex-col justify-between pt-10 md:pt-20 pb-0">
+      <div className="relative w-full bg-[#082159] flex flex-col justify-between pt-10 md:pt-28 pb-0">
         <div className="w-full mx-auto max-w-7xl px-6">
           <div className="max-w-[650px]">
             {/* Vision Badge */}
@@ -27,7 +27,7 @@ const VisionSection: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="text-3xl sm:text-4xl md:text-5xl font-medium text-white leading-tight mb-2 font-satoshi"
             >
-                Your path to wealth,
+                Your path to Wealth,
               <br />
               <span className="text-[#477fff]">supported by Singari.</span>
             </motion.h2>
