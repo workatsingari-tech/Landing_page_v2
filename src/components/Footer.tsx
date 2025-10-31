@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="w-full bg-[#082159] py-12 px-6 text-white">
+    <footer className="w-full bg-[#082159] py-12 md:px-6 text-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left Section: Logo + tagline */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">

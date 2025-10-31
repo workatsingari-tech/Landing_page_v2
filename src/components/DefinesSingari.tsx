@@ -36,7 +36,7 @@ const cards = [
 
 const DefinesSingari: React.FC = () => {
   return (
-    <section id='about' className="w-full py-10 md:py-20 px-6">
+    <section id='about' className="w-full pt-10 md:pt-28 px-6">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
