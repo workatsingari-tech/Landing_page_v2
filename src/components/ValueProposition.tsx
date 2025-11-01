@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, scale } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ValueProposition: React.FC = () => {
   const features = [
